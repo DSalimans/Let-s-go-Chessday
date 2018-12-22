@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body onload="CreateChessTable()">
+    <table id="chessboard" border="1px"></table>
+
+    <script>
+
+        var GameState = {
+            playing: 1,
+            pieceSelected: 0,
+            highlight: 0,
+            evaldec: 0,
+            bgcs: ""
+        }
+
+        var id = 0;
+
+        function CreateChessTable() {
+            var tbl = document.getElementById("chessboard");
+
+            for (var r = 0; r < 8; r++) {
+
+                var row = document.createElement("tr");
+
+                for (var c = 0; c < 8; c++) {
+                    var cell = document.createElement("td");
+                    cell.width = "50px";
+                    cell.height = "50px";
+                    cell.id = id++;
+
+                    if (cell.id % 2 == 0) {
+                        cell.style.backgroundColor = "#cbb3a1";
+                    } else {
+                        cell.style.backgroundColor = "#dcc2ae";
+                    }
+                    cell.addEventListener("click", function () {
+                        if (GameState.playing != 0 && GameState.pieceSelected == 0) {
+                            GameState.bgcs = this.style.backgroundColor;
+                            this.style.backgroundColor = "#FFFFFF";
+                            GameState.pieceSelected = 1;
+                            GameState.highlight = cell.id;
+                        } else if (GameState.playing != 0 && GameState.pieceSelected == 1 && GameState.highlight == cell.id) {
+                            console.log("Highlight: " + GameState.highlight + ", id: " + id);
+                            this.style.backgroundColor = GameState.bgcs;
+                            GameState.pieceSelected = 0;
+                        }
+                    });
+
+                    row.appendChild(cell);
+                    cell.innerHTML = id;
+                }
+                tbl.appendChild(row);
+            }
+
+            AppendChessPieceImages();
+        }
+
+        function GlobClickListener(i) {
+            var id = document.getElementById(i);
+            id.addEventListener("click", function () {
+                if (GameState.playing != 0 && GameState.pieceSelected == 0) {
+                    this.style.backgroundColor = "#FFFFFF";
+                    GameState.pieceSelected = 1;
+                    GameState.highlight = id;
+                } else if (GameState.playing != 0 && GameState.pieceSelected == 1 && GameState.highlight == id) {
+                    return;
+                }
+            });
+        }
+        
+        function AppendChessPieceImages() {
+            for (i = 0; i < 64; i++) {
+                var id = document.getElementById(i);
+                //console.log("Entire element: [" + id + "]" + "id: " + id.id);
+                switch (id.id) {
+                    case "0":
+                        id.innerHTML = "<img src='assets/blackrook.png'/ width='50px'>";
+                        break;
+                    case "1":
+                        id.innerHTML = "<img src='assets/blackknight.png'/ width='50px'>";
+                        break;
+                    case "2":
+                        id.innerHTML = "<img src='assets/blackbishop.png'/ width='50px'>";
+                        break;
+                    case "3":
+                        id.innerHTML = "<img src='assets/blackqueen.png'/ width='50px'>";
+                        break;
+                    case "4":
+                        id.innerHTML = "<img src='assets/blackking.png'/ width='50px'>";
+                        break;
+                    case "5":
+                        id.innerHTML = "<img src='assets/blackbishop.png'/ width='50px'>";
+                        break;
+                    case "6":
+                        id.innerHTML = "<img src='assets/blackknight.png'/ width='50px'>";
+                        break;
+                    case "7":
+                        id.innerHTML = "<img src='assets/blackrook.png'/ width='50px'>";
+                        break;
+                    case "8":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        //GlobClickListener(i);
+                        //id.addEventListener("click", function () {
+                            //this.cell.style.backgroundColor = "cbb333";
+                        //})
+                        break;
+                    case "9":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        break;
+                    case "10":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        break;
+                    case "11":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        break;
+                    case "12":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        break;
+                    case "13":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        break;
+                    case "14":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        break;
+                    case "15":
+                        id.innerHTML = "<img src='assets/blackpawn.png'/ width='50px'>";
+                        break;
+                    case "48":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "49":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "50":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "51":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "52":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "53":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "54":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "55":
+                        id.innerHTML = "<img src='assets/whitepawn.png'/ width='50px'>";
+                        break;
+                    case "56":
+                        id.innerHTML = "<img src='assets/whiterook.png'/ width='50px'>";
+                        break;
+                    case "57":
+                        id.innerHTML = "<img src='assets/whiteknight.png'/ width='50px'>";
+                        break;
+                    case "58":
+                        id.innerHTML = "<img src='assets/whitebishop.png'/ width='50px'>";
+                        break;
+                    case "59":
+                        id.innerHTML = "<img src='assets/whitequeen.png'/ width='50px'>";
+                        break;
+                    case "60":
+                        id.innerHTML = "<img src='assets/whiteking.png'/ width='50px'>";
+                        break;
+                    case "61":
+                        id.innerHTML = "<img src='assets/whitebishop.png'/ width='50px'>";
+                        break;
+                    case "62":
+                        id.innerHTML = "<img src='assets/whiteknight.png'/ width='50px'>";
+                        break;
+                    case "63":
+                        id.innerHTML = "<img src='assets/whiterook.png'/ width='50px'>";
+                        break;
+                    default:
+                        id.innerHTML = "";
+                        break;
+                }
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>
