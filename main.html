@@ -45,7 +45,7 @@
 
 
 
-<!--  
+<!--
     checkgrid(Checker):
         return 0/1/2 if grid on coordinate is empty/white/black.
 
@@ -88,12 +88,10 @@
                     if checkgrid(targetgrid) == 2:
                         capture piece on grid
 
-                # een zet naar links
+                # een zet naar rechts
                 if selectedgrid < targetgrid:
                     int i;
-                    int filecalc;
-                    filecalc = 
-                    for (i = selectedgrid + 1; i // 10 != targetgrid // 10; i++):
+                    for (i = selectedgrid + 1; (i - 9) % 10 == 0; i++):
                         if checkgrid(i) == 1 || checkgrid(i) == 2: 
                         return False
                     if checkgrid(targetgrid) == 0:
@@ -103,12 +101,10 @@
                     if checkgrid(targetgrid) == 2:
                         capture piece on grid
 
-                # een zet naar rechts
+                # een zet naar links
                 if selectedgrid > targetgrid:
                     int i;
-                    int filecalc;
-                    filecalc = 
-                    for (i = selectedgrid - 1; (i - 1) // 10 != targetgrid // 10; i--):
+                    for (i = selectedgrid - 1; i % 10 == 0; i--):
                         if checkgrid(i) == 1 || checkgrid(i) == 2: 
                         return False
                     if checkgrid(targetgrid) == 0:
@@ -122,10 +118,19 @@
             sdfsdf
 
         if selectedgrid == wB:
-            sdfsdf
+            if (selectedgrid - 9 == targetgrid || if selectedgrid - 11 == targetgrid || if selectedgrid + 9 == targetgrid || if selectedgrid + 11 == targetgrid):
 
-        if selectedgrid == wK:      
-            sdfsdf
+        if selectedgrid == wK: 
+            var legal = [-11,-10,-9,-1,1,9,10,11]
+            int i;
+            for (1 = 0; i < legal.length; i++):
+                if (selectedgrid + legal[i] == targetgrid):
+                    if checkgrid(targetgrid) == 0:
+                        move piece to grid
+                    if checkgrid(targetgrid) == 1:
+                        return False
+                    if checkgrid(targetgrid) == 2:
+                        capture piece on grid                    
 
         if selectedgrid == wQ:
             sdfsdf
