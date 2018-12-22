@@ -6,16 +6,30 @@
 <body>
 
 <p>Data representation of current state of the board:</i></p>
-
-    [   [bR, bKn, bB, bQ, bK, bB, bKn, bR],<br>
+    [   
+       [bR, bKn, bB, bQ, bK, bB, bKn, bR],<br>
         [bP, bP, bP, bP, bP, bP, bP, bP],<br>
         [O, O, O, O, O, O, O, O],<br>
         [O, O, O, O, O, O, O, O],<br>
         [O, O, O, O, O, O, O, O],<br>
         [O, O, O, O, O, O, O, O],<br>
         [wP, wP, wP, wP, wP, wP, wP, wP],<br>
-        [wR, wKn, wB, wQ, wK, wB, wKn, wR]  ]
+        [wR, wKn, wB, wQ, wK, wB, wKn, wR]<br>
+    ]
 
+        
+<p>Coordinate representation:</i></p>        
+    [   
+        [ 1, 2, 3, 4, 5, 6, 7, 8],<br>
+        [ 9,10,11,12,13,14,15,16],<br>
+        [17,18,19,20,21,22,23,24],<br>
+        [25,26,27,28,29,30,31,32],<br>
+        [33,34,35,36,37,38,39,40],<br>
+        [41,42,43,44,45,46,47,48],<br>
+        [49,50,51,52,53,54,55,56],<br>
+        [57,58,59,60,61,62,63,64],
+    ]
+       
     <br><br>
     b & w signify black and white<br>
     R  = Rook<br>
@@ -27,3 +41,126 @@
     
 </body>
 </html>
+
+
+
+
+<!--  
+    checkgrid(Checker):
+        return 0/1/2 if grid on coordinate is empty/white/black.
+
+
+
+
+    if player == white:
+
+        if selectedgrid == wP:
+            sdfsdf
+
+        if selectedgrid == wR:
+            if selectedgrid // 10 == targetgrid  // 10 || selectedgrid % 10 == targetgrid % 10:
+                int rankcalc;
+                rankcalc = selectedgrid - targetgrid
+
+                # een zet naar beneden
+                if rankcalc % 10 == 0 && selectedgrid < targetgrid:
+                    int i;
+                    for (i = selectedgrid + 10; i < targetgrid - 10; i+=10):
+                        if checkgrid(i) == 1 || checkgrid(i) == 2: 
+                            return False;
+                    if checkgrid(targetgrid) == 0:
+                        move piece to grid
+                    if checkgrid(targetgrid) == 1:
+                        return False
+                    if checkgrid(targetgrid) == 2:
+                        capture piece on grid
+
+                # een zet naar boven
+                if rankcalc % 10 == 0 && selectedgrid > targetgrid:
+                    int i;
+                    for (i = selectedgrid - 10; i > targetgrid + 10; i-=10):
+                        if checkgrid(i) == 1 || checkgrid(i) == 2: 
+                            return False
+                    if checkgrid(targetgrid) == 0:
+                        move piece to grid
+                    if checkgrid(targetgrid) == 1:
+                        return False
+                    if checkgrid(targetgrid) == 2:
+                        capture piece on grid
+
+                # een zet naar links
+                if selectedgrid < targetgrid:
+                    int i;
+                    int filecalc;
+                    filecalc = 
+                    for (i = selectedgrid + 1; i // 10 != targetgrid // 10; i++):
+                        if checkgrid(i) == 1 || checkgrid(i) == 2: 
+                        return False
+                    if checkgrid(targetgrid) == 0:
+                        move piece to grid
+                    if checkgrid(targetgrid) == 1:
+                        return False
+                    if checkgrid(targetgrid) == 2:
+                        capture piece on grid
+
+                # een zet naar rechts
+                if selectedgrid > targetgrid:
+                    int i;
+                    int filecalc;
+                    filecalc = 
+                    for (i = selectedgrid - 1; (i - 1) // 10 != targetgrid // 10; i--):
+                        if checkgrid(i) == 1 || checkgrid(i) == 2: 
+                        return False
+                    if checkgrid(targetgrid) == 0:
+                        move piece to grid
+                    if checkgrid(targetgrid) == 1:
+                        return False
+                    if checkgrid(targetgrid) == 2:
+                        capture piece on grid
+
+        if selectedgrid == wKn:
+            sdfsdf
+
+        if selectedgrid == wB:
+            sdfsdf
+
+        if selectedgrid == wK:      
+            sdfsdf
+
+        if selectedgrid == wQ:
+            sdfsdf
+
+        else:
+            error: not your piece.
+
+    if player == black:
+        if selectedgrid == bP:
+            for (y = 1; y < 9; i++):
+                for (x = 1; x < 9; i++):
+
+        if selectedgrid == bR:
+            if (selectedgrid - 1) // 8 == targetgrid - 1) // 8 || selectedgrid % 8 == targetgrid % 8:
+                "doe de zet functie"
+            else:
+                error functie.
+
+        if selectedgrid == bKn:
+            for (y = 1; y < 9; i++):
+                for (x = 1; x < 9; i++):
+
+        if selectedgrid == bB:
+            for (y = 1; y < 9; i++):
+                for (x = 1; x < 9; i++):
+
+        if selectedgrid == bK:
+            for (y = 1; y < 9; i++):
+                for (x = 1; x < 9; i++):
+
+        if selectedgrid == bQ:
+            for (y = 1; y < 9; i++):
+                for (x = 1; x < 9; i++):
+        else:
+            error: not your piece.       
+
+
+-->
